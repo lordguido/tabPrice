@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Atelier 91 - Formador de Preço</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <link href="/imgs/icon.png" rel="icon"/>
+    <link href="/imgs/icon.png" rel="apple-touch-icon"/>
+    <link href="/imgs/icon.png" rel="shortcut icon"/>
+    <link href="normalize.css" type="text/css" rel="stylesheet" />
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app">
+      <form name="calcform" method="post" action="">
+        <div class="inputClass">  
+          <label>Custo (R$)</label>
+          <input type="number" id="varPC" placeholder="R$ 000,00">
+        </div>
+        <div class="inputClass">
+          <label>Peça Plus?</label>
+          <input type="checkbox" id="checkPlus" class="flipswitch">
+          <span></span>
+        </div>
+        <br/>
+        <div class="inputClass">
+          <label>Venda (R$)</label>
+          <input type="text" readonly id="varPV" placeholder="R$ 000,00">
+        </div>      
+      </form>
+    </div>
+    <script src="core.js"></script>  
+  </body>
+</html>
