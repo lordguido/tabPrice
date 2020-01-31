@@ -17,8 +17,16 @@ body{
 }
 .inputClass{
   margin-bottom: 10px;
+
 }
 input{
   width: 350px;
   font-size: 50px;
+  border-radius: 5px;
+}
+fieldset{
+  border-radius: 5px;
+  width: 350px;
+  font-size: 50px;
+  background-color: whitesmoke;
 }

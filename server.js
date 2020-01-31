@@ -1,20 +1,31 @@
 const express = require('express');
-const app = express();
-<<<<<<< HEAD
-
-app.use('/', express.static(__dirname + '/'));
-
-app.listen(8085);
-=======
 const path = require('path');
-const router = express.Router();
 
-app.get('/', (req, res) => {
-res.render('index', function (err, html) {
-  res.send(html)
-})
-    
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'public'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+app.use('/res', (req, res) => {
+  res.render('res.html');
 });
 
-app.listen(3001);
->>>>>>> 42ba232614d7e8c623a7d2b8d24e3801534b92ee
+app.use('/', (req, res) => {
+  res.render('index.html');
+});
+
+
+
+io.on('connection', socket => {
+  console.log(socket.id);
+  socket.on('sendPV', data => {
+    console.log(data);
+    socket.broadcast.emit('receivedPV', data);
+  } )
+});
+
+server.listen(8085);

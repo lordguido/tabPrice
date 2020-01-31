@@ -8,10 +8,11 @@
     <link href="/imgs/icon.png" rel="apple-touch-icon"/>
     <link href="/imgs/icon.png" rel="shortcut icon"/>
     <link href="styles.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
   </head>
   <body>
     <div class="app">
-<<<<<<< HEAD
       <div class="inputClass">  
         <label>Desconto (%)</label>
         <input type="number" id="varDesc" placeholder="00 %">
@@ -23,28 +24,12 @@
       <div class="inputClass">
         <label>Venda (R$)</label>
         <input type="number" readonly id="varPV" placeholder="R$ 000,00">
-      </div>          
-=======
-      <h1>Calculadora !</h1>
-      <form name="calcform" method="post" action="">
-      <br/>
-        <div class="inputClass">  
-          <label>Custo (R$)</label>
-          <input type="number" id="varPC" placeholder="R$ 000,00">
-        </div>
-        <br/>
-        <div class="inputClass">
-          <label>Peça Plus?</label>
-          <input type="checkbox" id="checkPlus" class="flipswitch">
-          <span></span>
-        </div>
-        <br/>
-        <div class="inputClass">
-          <label>Venda (R$)</label>
-          <input type="text" readonly id="varPV" placeholder="R$ 000,00">
-        </div>      
-      </form>
->>>>>>> 42ba232614d7e8c623a7d2b8d24e3801534b92ee
+      </div>  
+      <div class="classChat">
+        <fieldset>
+          <label>R$ <span id="fieldPV"></span></label>
+        </fieldset>
+      </div>           
     </div>
   <script src="core.js"></script>  
   </body>
