@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "dev": "nodemon server.js"
+=======
+      "dev": "nodemon server.js"
+>>>>>>> 42ba232614d7e8c623a7d2b8d24e3801534b92ee
   },
   "repository": "https://github.com/lordguido/tabPrice.git",
   "author": "Rodrigo Dematei de freitas <rodfrei@gmail.com>",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.1",
     "http-server": "^0.12.1"
+=======
+    "express": "^4.17.1"
+>>>>>>> 42ba232614d7e8c623a7d2b8d24e3801534b92ee
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
