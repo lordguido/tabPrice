@@ -18,12 +18,8 @@ app.use('/', (req, res) => {
   res.render('index.html');
 });
 
-
-
 io.on('connection', socket => {
-  console.log(socket.id);
   socket.on('sendPV', data => {
-    console.log(data);
     socket.broadcast.emit('receivedPV', data);
   } )
 });

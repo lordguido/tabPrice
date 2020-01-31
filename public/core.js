@@ -7,8 +7,26 @@ varPC.onblur = function(){
   calcular();
 }
 
+varDesc.onkeypress = function(event){
+  if ( event.key === "Enter") {
+    console.log('tes')
+    varPC.focus();
+  }
+}
+
+varPC.onkeypress = function(event){
+  if ( event.key === "Enter") {
+    calcular();
+  }
+}
+
 varPC.onfocus = function(){
   varPC.value = ""
+}
+
+varDesc.onfocus = function(){
+  varPC.value = ""
+  varDesc.value = ""
 }
 
 function calcular() {
@@ -20,43 +38,40 @@ function calcular() {
 
   socket.emit('sendPV', res);
 
+  varFat = 600437.19;
   varPcVend = 5450;
-  varPccomp = 5932;
   varGastoForne = 296139.79;
-
+  varPccomp = 5932;
   varCustoFx = 161525.79;
   varCustoTaxa = 0.20;
-
   varLucro = 0.30;
 
-
-  varFat = 600437.19;
-
   varCustoLoja = varCustoFx / varPcVend;
-  console.log(varCustoLoja)
-
   varNewPV1 = varPcDesc + varCustoLoja;
-  console.log(varCustoLoja)
-
   varValorMedioPcComprada = varGastoForne / varPccomp;
   varValorMinPcComprada = varValorMedioPcComprada / 2;
   varValorMaxPcComprada = varValorMedioPcComprada * 2.5;
-  console.log(varValorMinPcComprada)
-  console.log(varValorMedioPcComprada)
-  console.log(varValorMaxPcComprada)
-
   varMargemMedia = 0.25;
   varMargemMin = 0.55;
   varMargemMax = 0.50;
-
   varIncreMin = (varMargemMin - varMargemMedia) / ( varValorMedioPcComprada - varValorMinPcComprada );
-  varIncreMax = (varMargemMax - varMargemMedia) / ( varValorMaxPcComprada - varValorMinPcComprada );
-  console.log(varIncreMin)
-  console.log(varIncreMax)
+  varIncreMax = (varMargemMax - varMargemMedia) / ( varValorMaxPcComprada - varValorMinPcComprada ); 
+  console.log(varPcDesc);
+  console.log(varValorMedioPcComprada);
+  if ( varPcDesc >= varValorMedioPcComprada ) {
+    console.log('Maior q Media');
+    varPcMaisCustoLoja = varPcDesc + varCustoLoja;
+  } else {
+    varIncrCusto =  varCustoLoja / (varValorMedioPcComprada - varValorMinPcComprada);
+    varCustoProp = (varValorMedioPcComprada - varValorMinPcComprada) * varIncrCusto;
+    varPcMaisCustoLoja = varPcDesc + varCustoProp;
+    console.log('Menor q Media')
+  }
+
+  console.log(varPcMaisCustoLoja)
+  
 }
 
 socket.on('receivedPV', function(varPV) {
-
   document.getElementById("fieldPV").innerHTML = varPV;
-
 });
