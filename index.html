@@ -7,29 +7,23 @@
     <link href="/imgs/icon.png" rel="icon"/>
     <link href="/imgs/icon.png" rel="apple-touch-icon"/>
     <link href="/imgs/icon.png" rel="shortcut icon"/>
-    <link href="normalize.css" type="text/css" rel="stylesheet" />
     <link href="styles.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
     <div class="app">
-      <h1>Calculadora !</h1>
-      <form name="calcform" method="post" action="">
-        <div class="inputClass">  
-          <label>Custo (R$)</label>
-          <input type="number" id="varPC" placeholder="R$ 000,00">
-        </div>
-        <div class="inputClass">
-          <label>Peça Plus?</label>
-          <input type="checkbox" id="checkPlus" class="flipswitch">
-          <span></span>
-        </div>
-        <br/>
-        <div class="inputClass">
-          <label>Venda (R$)</label>
-          <input type="text" readonly id="varPV" placeholder="R$ 000,00">
-        </div>      
-      </form>
+      <div class="inputClass">  
+        <label>Desconto (%)</label>
+        <input type="number" id="varDesc" placeholder="00 %">
+      </div>
+      <div class="inputClass">  
+        <label>Custo (R$ <span id="spPC"></span> )</label>
+        <input type="number" id="varPC" placeholder="R$ 000,00">
+      </div>
+      <div class="inputClass">
+        <label>Venda (R$)</label>
+        <input type="number" readonly id="varPV" placeholder="R$ 000,00">
+      </div>          
     </div>
-    <script src="core.js"></script>  
+  <script src="core.js"></script>  
   </body>
 </html>

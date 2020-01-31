@@ -1,31 +1,19 @@
-let varPC = document.getElementById("varPC");
-let checkPlus = document.getElementById("checkPlus");
-let varPV = document.getElementById("varPV");
-
-checkPlus.onclick =  function(){
-  varCondPlus = document.getElementById("checkPlus").checked ;
-  calcular(varCondPlus);
-}
-
+var varPC = document.getElementById("varPC");
+var varPV = document.getElementById("varPV");
+var varDesc = document.getElementById("varDesc");
 varPC.onblur = function(){
-  calcular(document.getElementById("checkPlus").checked);
+  calcular();
 }
 
 varPC.onfocus = function(){
   varPC.value = ""
 }
 
-function calcular(varCondPlus) {
-  var valor1 = document.calcform.varPC.value;
-  valor1 = valor1.replace("R$ ", "");
-  valor1 = parseInt(valor1); 
-  var varMargem = 20;
-  var varPlus = 10;
-  var res = valor1 * 2.25 ;
-  if ( varCondPlus === true ) {
-    res = valor1 * 2.35;
-  }
+function calcular() {
+  
+  var varPcDesc =  (varPC.value - (varPC.value * varDesc.value / 100));
+  var res = varPcDesc * 2.25 ;
   res = res.toFixed(2);
-  res = res.replace('.', ',')
-  document.calcform.varPV.value = res;
+  varPV.value = res;
+  document.getElementById("spPC").innerHTML = varPcDesc;
 }
