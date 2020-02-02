@@ -1,4 +1,4 @@
-var socket = io('http://192.168.0.19:8085/');
+var socket = io('http://192.168.0.11:8085/');
 
 var varPC = document.getElementById("varPC");
 var varPV = document.getElementById("varPV");
@@ -9,7 +9,6 @@ varPC.onblur = function(){
 
 varDesc.onkeypress = function(event){
   if ( event.key === "Enter") {
-    console.log('tes')
     varPC.focus();
   }
 }
@@ -33,10 +32,10 @@ function calcular() {
   var varPcDesc =  (varPC.value - (varPC.value * varDesc.value / 100));
   var res = varPcDesc * 2.25 ;
   res = res.toFixed(0);
+  res2 = varPcDesc.toFixed(0);
   varPV.value = res;
-  document.getElementById("spPC").innerHTML = varPcDesc;
-
-  socket.emit('sendPV', res);
+  varPC.value = res2;
+  socket.emit('sendPV', {res, res2});
 
   varFat = 600437.19;
   varPcVend = 5450;
@@ -45,7 +44,6 @@ function calcular() {
   varCustoFx = 161525.79;
   varCustoTaxa = 0.20;
   varLucro = 0.30;
-
   varCustoLoja = varCustoFx / varPcVend;
   varNewPV1 = varPcDesc + varCustoLoja;
   varValorMedioPcComprada = varGastoForne / varPccomp;
@@ -67,11 +65,5 @@ function calcular() {
     varPcMaisCustoLoja = varPcDesc + varCustoProp;
     console.log('Menor q Media')
   }
-
   console.log(varPcMaisCustoLoja)
-  
 }
-
-socket.on('receivedPV', function(varPV) {
-  document.getElementById("fieldPV").innerHTML = varPV;
-});
