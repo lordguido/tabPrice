@@ -1,7 +1,7 @@
 body{
   margin: 10px;
   font-family: 'Rubik', sans-serif;
-  font-size: 50px;
+  font-size: 100px;
   background-color: gray;
 }
 .app{
@@ -12,15 +12,15 @@ body{
   margin-right: auto;
   align-items: left;
   justify-content: center;
-  width: 400px;
+  width: 800px;
   border: black;
 }
 .inputClass{
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 
 }
 input{
-  width: 350px;
-  font-size: 50px;
-  border-radius: 5px;
+  width: 850px;
+  font-size: 100px;
+  border-radius: 15px;
 }

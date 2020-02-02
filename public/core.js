@@ -1,4 +1,4 @@
-var socket = io('http://192.168.0.11:8085/');
+var socket = io('http://servidorcp.ddns.net:8085/');
 
 var varPC = document.getElementById("varPC");
 var varPV = document.getElementById("varPV");
